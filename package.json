@@ -7,19 +7,31 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "yarn parcel index.html",
-    "build": "yarn parcel build index.html"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs2": "^7.11.2",
+    "tailwindcss": "^1.8.8"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "autoprefixer": "^9.8.6",
+    "eslint": "^7.8.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "parcel-bundler": "^1.12.4",
     "parcel-plugin-static-files-copy": "^2.5.0",
-    "parcel": "^2.0.0-beta.1",
-    "serve-static": "^1.14.1"
+    "postcss-modules": "^3.2.2",
+    "prettier": "^2.1.1"
   },
   "staticFiles": {
     "staticPath": [
       {
-        "staticPath": "static",
-        "staticOutDir": "data/"
+        "staticPath": "src/data",
+        "staticOutDir": "data"
       }
     ]
   },

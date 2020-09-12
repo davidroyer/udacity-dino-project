@@ -1,0 +1,6 @@
+{
+  "files.exclude": {
+    ".parcel-cache": true,
+    "yarn-error.log": true
+  }
+}
