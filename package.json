@@ -11,7 +11,19 @@
     "build": "yarn parcel build index.html"
   },
   "devDependencies": {
+    "parcel-plugin-static-files-copy": "^2.5.0",
     "parcel": "^2.0.0-beta.1",
     "serve-static": "^1.14.1"
-  }
+  },
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "static",
+        "staticOutDir": "data/"
+      }
+    ]
+  },
+  "browserslist": [
+    "last 3 Chrome versions"
+  ]
 }

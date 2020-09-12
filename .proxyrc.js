@@ -3,5 +3,5 @@ console.log("serveStatic", serveStatic)
 
 module.exports = function (app) {
   // Use static middleware
-  app.use(serveStatic('data'))
+  app.use(serveStatic('static'))
 }
