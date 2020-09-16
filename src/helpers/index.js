@@ -7,3 +7,15 @@ export function insertIntoArray(array, insertPosition, insertValue) {
   array.splice(insertPosition, 0, insertValue);
   // return [...array].splice(insertPosition, 0, insertValue); // Maybe for immutability
 }
+
+export function convertToInches(feet) {
+  return feet * 12;
+}
+
+export function getTotalInches(value1, value2) {
+  return value1 + value2;
+}
+
+export function convertToNumber(value) {
+  return Number(value);
+}

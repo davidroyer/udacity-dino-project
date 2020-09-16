@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 
 import { DinoConstructor, HumanConstructor } from "./models";
-import { insertIntoArray } from "./helpers/";
+import { convertToInches, convertToNumber, insertIntoArray } from "./helpers/";
+import GridItemContent from "./components/Card";
 
 const getApiData = async () => {
   const response = await fetch("data/dino.json");
@@ -16,30 +17,40 @@ async function loadGrid(human) {
   insertIntoArray(creaturesArray, 4, human);
 
   creaturesArray.forEach((dino) => {
-    let gridItem = document.createElement("div");
-    gridItem.textContent = dino.species;
-    gridItem.classList.add("grid-item");
-    grid.appendChild(gridItem);
+    let gridItemWrapper = document.createElement("div");
+    gridItemWrapper.classList.add("grid-item");
+    gridItemWrapper.innerHTML = GridItemContent(dino);
+    grid.appendChild(gridItemWrapper);
   });
 }
 
-function handleButtonClick() {
-  const submitBtn = document.getElementById("submit-button");
+function handleFormSubmission() {
+  const form = document.getElementById("comparison-form");
 
-  submitBtn.addEventListener("click", function () {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const species = "human";
+    const name = form.elements["name"].value;
+    const diet = form.elements["diet"].value;
+    const heightFeet = form.elements["height-feet"].value;
+    const heightInches = form.elements["height-inches"].value;
+    const height = convertToInches(heightFeet) + convertToNumber(heightInches);
+
     let human = new HumanConstructor({
-      name: "David",
-      height: "5",
-      weight: 200,
-      diet: "Herbivore",
-      species: "human",
+      name,
+      height,
+      diet,
+      species,
     });
+    console.log("handleFormSubmission -> human", human);
 
     loadGrid(human);
+    form.style.display = "none";
   });
 }
 
-handleButtonClick();
+handleFormSubmission();
 
 // NOTE: Not sure why I need the IFFE but this is with it
 // (function () {
