@@ -1,7 +1,12 @@
 const GridItemContent = (item) => {
+  function factRenderer(item) {
+    if (item.species !== "human") return `<p>${item.fact}</p>`;
+    else return "";
+  }
+
   return `
   <h2>${item.species}</h2>
-  <p>${item.fact}</p>
+  ${factRenderer(item)}
   `;
 };
 export default GridItemContent;
