@@ -54,5 +54,5 @@ handleFormSubmission();
 
 // NOTE: Not sure why I need the IFFE but this is with it
 // (function () {
-//   handleButtonClick();
+//   handleFormSubmission();
 // })();
