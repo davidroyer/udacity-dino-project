@@ -19,3 +19,11 @@ export function getTotalInches(value1, value2) {
 export function convertToNumber(value) {
   return Number(value);
 }
+
+export function randomIntFromInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+export function isPositiveNumber(value) {
+  return Math.sign(value) === 1;
+}
