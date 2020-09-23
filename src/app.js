@@ -16,10 +16,17 @@ async function loadGrid(human) {
 
   insertIntoArray(creaturesArray, 4, human);
 
-  creaturesArray.forEach((dino) => {
+  creaturesArray.forEach((creature) => {
+    console.log("loadGrid -> creature", creature);
+
+    if (creature.species !== "Pigeon" && creature.species !== "human") {
+      const factToUse = creature.compareHeight(human, creature);
+      creature.setFact(factToUse);
+    }
+
     let gridItemWrapper = document.createElement("div");
     gridItemWrapper.classList.add("grid-item");
-    gridItemWrapper.innerHTML = GridItemContent(dino);
+    gridItemWrapper.innerHTML = GridItemContent(creature);
     grid.appendChild(gridItemWrapper);
   });
 }
