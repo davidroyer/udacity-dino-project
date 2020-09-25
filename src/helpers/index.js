@@ -27,3 +27,8 @@ export function randomIntFromInterval(min, max) {
 export function isPositiveNumber(value) {
   return Math.sign(value) === 1;
 }
+
+export function isExtinctDino(species) {
+  console.log("isExtinctDino -> isExtinctDino");
+  return species !== "Pigeon" && species !== "human";
+}

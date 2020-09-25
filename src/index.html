@@ -19,8 +19,9 @@
     <header>
         <h2>Natural History Museum</h2>
         <h1>Dinosaurs</h1>
-        <h3>How do you compare?</h3>
+        <h3 class="text-4xl my-8">How do you compare?</h3>
     </header>
+
     <!-- Form to get user input -->
     <form id="comparison-form">
         <div class="form-container">
@@ -40,8 +41,12 @@
             <button type="submit" id="submit-button">Compare Me!</button>
         </div>
     </form>
+
     <!-- .grid to attach tiles to -->
-    <main id="grid"></main>
+    <div class="container mx-auto px-8">
+        <main id="grid" class="grid gap-8 md:grid-cols-3"></main>
+    </div>
+
     <footer>
         <!-- Include information source -->
         <p class="fine-print">Data Sourced from <a href="https://www.wikipedia.org/">Wikipedia.org</a>, all numbers are

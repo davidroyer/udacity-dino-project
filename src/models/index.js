@@ -35,8 +35,15 @@ CreatureConstructor.prototype.compareHeight = compareHeight;
 export function DinoConstructor(dinoObject) {
   CreatureConstructor.call(this, dinoObject);
 
-  this.dinoMethod = function () {
-    console.log("Dino's fact -> ", this.fact);
+  this.facts = [
+    this.fact,
+    `The ${this.species} lived in ${this.where}.`,
+    `The ${this.species} was a ${this.diet}.`,
+  ];
+
+  this.randomizedFactGenerator = function () {
+    const selectedIndex = Math.floor(Math.random() * this.facts.length);
+    return this.facts[selectedIndex];
   };
 }
 

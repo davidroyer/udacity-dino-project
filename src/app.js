@@ -1,7 +1,12 @@
 /* eslint-disable no-unused-vars */
 
 import { DinoConstructor, HumanConstructor } from "./models";
-import { convertToInches, convertToNumber, insertIntoArray } from "./helpers/";
+import {
+  convertToInches,
+  convertToNumber,
+  insertIntoArray,
+  isExtinctDino,
+} from "./helpers/";
 import GridItemContent from "./components/Card";
 
 const getApiData = async () => {
@@ -19,8 +24,9 @@ async function loadGrid(human) {
   creaturesArray.forEach((creature) => {
     console.log("loadGrid -> creature", creature);
 
-    if (creature.species !== "Pigeon" && creature.species !== "human") {
-      const factToUse = creature.compareHeight(human, creature);
+    if (isExtinctDino(creature.species)) {
+      // const factToUse = creature.compareHeight(human, creature);
+      const factToUse = creature.randomizedFactGenerator();
       creature.setFact(factToUse);
     }
 
