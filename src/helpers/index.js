@@ -29,6 +29,5 @@ export function isPositiveNumber(value) {
 }
 
 export function isExtinctDino(species) {
-  console.log("isExtinctDino -> isExtinctDino");
   return species !== "Pigeon" && species !== "human";
 }

@@ -1,13 +1,18 @@
 /* eslint-disable no-unused-vars */
 
-import { DinoConstructor, HumanConstructor } from "./models";
+import GridItemContent from "./components/Card";
 import {
   convertToInches,
   convertToNumber,
   insertIntoArray,
-  isExtinctDino,
+  isExtinctDino
 } from "./helpers/";
-import GridItemContent from "./components/Card";
+import {
+  compareHeight,
+  compareWeight,
+  DinoConstructor,
+  HumanConstructor
+} from "./models";
 
 const getApiData = async () => {
   const response = await fetch("data/dino.json");
@@ -25,7 +30,11 @@ async function loadGrid(human) {
     console.log("loadGrid -> creature", creature);
 
     if (isExtinctDino(creature.species)) {
-      // const factToUse = creature.compareHeight(human, creature);
+      creature.facts = [
+        ...creature.facts,
+        compareWeight(human, creature),
+        compareHeight(human, creature),
+      ];
       const factToUse = creature.randomizedFactGenerator();
       creature.setFact(factToUse);
     }
@@ -46,6 +55,7 @@ function handleFormSubmission() {
     const species = "human";
     const name = form.elements["name"].value;
     const diet = form.elements["diet"].value;
+    const weight = form.elements["weight"].value;
     const heightFeet = form.elements["height-feet"].value;
     const heightInches = form.elements["height-inches"].value;
     const height = convertToInches(heightFeet) + convertToNumber(heightInches);
@@ -55,8 +65,8 @@ function handleFormSubmission() {
       height,
       diet,
       species,
+      weight: convertToNumber(weight),
     });
-    console.log("handleFormSubmission -> human", human);
 
     loadGrid(human);
     form.style.display = "none";

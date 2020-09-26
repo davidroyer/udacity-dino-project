@@ -1,7 +1,7 @@
 import {
   inheritFromParent,
   isPositiveNumber,
-  randomIntFromInterval,
+  randomIntFromInterval
 } from "../helpers";
 
 /**
@@ -45,6 +45,21 @@ export function DinoConstructor(dinoObject) {
     const selectedIndex = Math.floor(Math.random() * this.facts.length);
     return this.facts[selectedIndex];
   };
+
+  // this.compareHeight = function (human) {
+  //   const weightDifference = human.height - this.height;
+  //   const heavierCreature = isPositiveNumber(weightDifference)
+  //     ? "human"
+  //     : "dino";
+
+  //   const humanHeavierText = `You are heavier than the ${this.species} by ${weightDifference} lbs.`;
+  //   const dinoHeavierText = `The ${
+  //     this.species
+  //   } is heavier than you by ${-weightDifference} inches`;
+
+  //   if (heavierCreature === "human") return humanHeavierText;
+  //   else return dinoHeavierText;
+  // };
 }
 
 // DinoConstructor.prototype.compareHeight = compareHeight;
@@ -56,9 +71,7 @@ export function DinoConstructor(dinoObject) {
 export function HumanConstructor(humanObject) {
   CreatureConstructor.call(this, humanObject);
 
-  this.humanMethod = function () {
-    console.log("Human Info -> ", this);
-  };
+  this.humanMethod = function () {};
 }
 
 /**
@@ -78,25 +91,37 @@ function setFact(newValue) {
  * @param {Object} human The human object
  * @param {Object} dino The dino object
  */
-function compareHeight(human, dino) {
+export function compareHeight(human, dino) {
   const heightDifference = human.height - dino.height;
   const largerCreature = isPositiveNumber(heightDifference) ? "human" : "dino";
 
-  const humanTallerText = `You are taller than the ${dino.species} by ${heightDifference} cm `;
+  const humanTallerText = `You are taller than the ${dino.species} by ${heightDifference} inches `;
   const dinoTallerText = `The ${
     dino.species
-  } is taller than you by ${-heightDifference} cm`;
+  } is taller than you by ${-heightDifference} inches`;
 
   if (largerCreature === "human") return humanTallerText;
   else return dinoTallerText;
 }
 
 /**
- * Compare Method 2
- * @todo
+ * Comparison Method 2
  */
 
+export function compareWeight(human, dino) {
+  const weightDifference = human.weight - dino.weight;
+  const heavierCreature = isPositiveNumber(weightDifference) ? "human" : "dino";
+
+  const humanHeavierText = `You are heavier than the ${dino.species} by ${weightDifference} lbs.`;
+  const dinoHeavierText = `The ${
+    dino.species
+  } is heavier than you by ${-weightDifference} lbs`;
+
+  if (heavierCreature === "human") return humanHeavierText;
+  else return dinoHeavierText;
+}
+
 /**
- * Compare Method 3
+ * Comparison Method 3
  * @todo
  */
