@@ -3,5 +3,13 @@
     ".cache": true,
     ".parcel-cache": true,
     "yarn-error.log": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false
+    // "source.fixAll.eslint": true
   }
+  // "prettier.trailingComma": "es5",
+  // "eslint.options": {
+  //   "prettier.trailingComma": "es5"
+  // },
 }

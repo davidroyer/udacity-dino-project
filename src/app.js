@@ -5,13 +5,13 @@ import {
   convertToInches,
   convertToNumber,
   insertIntoArray,
-  isExtinctDino
+  isExtinctDino,
 } from "./helpers/";
 import {
   compareHeight,
   compareWeight,
   DinoConstructor,
-  HumanConstructor
+  HumanConstructor,
 } from "./models";
 
 const getApiData = async () => {
