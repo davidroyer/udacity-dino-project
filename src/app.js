@@ -6,13 +6,11 @@ import {
   convertToNumber,
   insertIntoArray,
   isExtinctDino,
-} from "./helpers/";
-import {
   compareHeight,
   compareWeight,
-  DinoConstructor,
-  HumanConstructor,
-} from "./models";
+  compareDiet,
+} from "./helpers/";
+import { DinoConstructor, HumanConstructor } from "./models";
 
 const getApiData = async () => {
   const response = await fetch("data/dino.json");
@@ -34,6 +32,7 @@ async function loadGrid(human) {
         ...creature.facts,
         compareWeight(human, creature),
         compareHeight(human, creature),
+        compareDiet(human, creature),
       ];
       const factToUse = creature.randomizedFactGenerator();
       creature.setFact(factToUse);
@@ -54,7 +53,7 @@ function handleFormSubmission() {
 
     const species = "human";
     const name = form.elements["name"].value;
-    const diet = form.elements["diet"].value;
+    const diet = form.elements["diet"].value.toLowerCase();
     const weight = form.elements["weight"].value;
     const heightFeet = form.elements["height-feet"].value;
     const heightInches = form.elements["height-inches"].value;

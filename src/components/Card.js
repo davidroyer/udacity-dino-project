@@ -5,7 +5,7 @@ const GridItemContent = (item) => {
   }
 
   return `
-  <h2>${item.species}</h2>
+  <h2 class="text-3xl">${item.species}</h2>
   ${factRenderer(item)}
   `;
 };
