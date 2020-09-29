@@ -55,7 +55,7 @@ p {
   position: relative;
   box-sizing: border-box;
   width: 100%;
-  height: 240px;
+  min-height: 240px;
   @apply shadow-md
 }
 
