@@ -116,7 +116,7 @@ p {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 0.8em 0.8em 1.8em;
+  padding: .75em;
   margin: 0;
   box-sizing: border-box;
   font-size: 1.2em;
@@ -134,10 +134,15 @@ p {
 }
 
 form p {
-  margin-bottom: 0.3em;
+  margin-bottom: 0.2em;
   font-size: 1.3em;
   font-weight: 600;
   font-family: 'Oswald', sans-serif;
+
+}
+
+form p:not(:first-of-type) {
+  margin-top: .75em;
 }
 
 input {
@@ -147,7 +152,7 @@ input {
 }
 
 .form-field__short {
-  width: 25%;
+  width: 32%;
   margin-right: 3%;
   box-sizing: border-box;
 }
