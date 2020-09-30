@@ -1,4 +1,4 @@
-import { inheritFromParent, randomIntFromInterval } from "../helpers";
+import { inheritFromParent } from "../helpers";
 
 /**
  * The parent constructor that will be extended from
@@ -7,19 +7,6 @@ import { inheritFromParent, randomIntFromInterval } from "../helpers";
 export function CreatureConstructor(creatureObject) {
   Object.assign(this, creatureObject);
 }
-
-/**
- * Adds method to CreatureConstructor's Prototype
- */
-CreatureConstructor.prototype.creatureMethod = function () {
-  console.log(`Setup on the Creature's Prototype`);
-};
-
-CreatureConstructor.prototype.generateFact = function () {
-  let randomNumber = randomIntFromInterval(1, 2);
-  if (randomNumber === 1) return `Fact 1 here.`;
-  else if (randomNumber === 2) return `Fact 2 Here.`;
-};
 
 CreatureConstructor.prototype.setFact = setFact;
 
@@ -40,27 +27,11 @@ export function DinoConstructor(dinoObject) {
     const selectedIndex = Math.floor(Math.random() * this.facts.length);
     return this.facts[selectedIndex];
   };
-
-  // this.compareHeight = function (human) {
-  //   const weightDifference = human.height - this.height;
-  //   const heavierCreature = isPositiveNumber(weightDifference)
-  //     ? "human"
-  //     : "dino";
-
-  //   const humanHeavierText = `You are heavier than the ${this.species} by ${weightDifference} lbs.`;
-  //   const dinoHeavierText = `The ${
-  //     this.species
-  //   } is heavier than you by ${-weightDifference} inches`;
-
-  //   if (heavierCreature === "human") return humanHeavierText;
-  //   else return dinoHeavierText;
-  // };
 }
 
-// DinoConstructor.prototype.compareHeight = compareHeight;
-
 /**
- * The Human Constructor
+ * @description The Human Constructor
+ * @constructor
  * @param {Object} humanObject
  */
 export function HumanConstructor(humanObject) {
