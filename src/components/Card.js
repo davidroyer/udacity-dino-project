@@ -6,10 +6,15 @@ const GridItemContent = (item) => {
     else return "";
   }
 
+  const nameRenderer = (item) => {
+    if (item.species == "human") return `${item.name}`;
+    else return item.species;
+  };
+
   const imgName = item.species.toLowerCase();
 
   return `
-  <h2 class="text-3xl">${item.species}</h2>
+  <h2 class="text-3xl">${nameRenderer(item)}</h2>
   <img src="data/images/${imgName}.png" alt="${item.species} image"/>
   ${factRenderer(item)}
   `;
