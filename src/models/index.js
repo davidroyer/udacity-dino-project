@@ -2,16 +2,17 @@ import { inheritFromParent } from "../helpers";
 
 /**
  * The parent constructor that will be extended from
+ * @constructor
  * @param {Object} creatureObject
  */
 export function CreatureConstructor(creatureObject) {
   Object.assign(this, creatureObject);
 }
-
 CreatureConstructor.prototype.setFact = setFact;
 
 /**
  * The Dino Constructor
+ * @constructor
  * @param {Object} dinoObject
  */
 export function DinoConstructor(dinoObject) {
@@ -30,14 +31,12 @@ export function DinoConstructor(dinoObject) {
 }
 
 /**
- * @description The Human Constructor
+ * The Human Constructor
  * @constructor
  * @param {Object} humanObject
  */
 export function HumanConstructor(humanObject) {
   CreatureConstructor.call(this, humanObject);
-
-  this.humanMethod = function () {};
 }
 
 /**
