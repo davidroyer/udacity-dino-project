@@ -25,8 +25,6 @@ async function loadGrid(human) {
   insertIntoArray(creaturesArray, 4, human);
 
   creaturesArray.forEach((creature) => {
-    console.log("loadGrid -> creature", creature);
-
     if (isExtinctDino(creature.species)) {
       creature.facts = [
         ...creature.facts,
@@ -72,9 +70,6 @@ function handleFormSubmission() {
   });
 }
 
-handleFormSubmission();
-
-// NOTE: Not sure why I need the IFFE but this is with it
-// (function () {
-//   handleFormSubmission();
-// })();
+(function () {
+  handleFormSubmission();
+})();
