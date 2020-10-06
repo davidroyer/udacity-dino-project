@@ -7,9 +7,10 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": false
     // "source.fixAll.eslint": true
-  }
+  },
   // "prettier.trailingComma": "es5",
   // "eslint.options": {
   //   "prettier.trailingComma": "es5"
   // },
+  "liveServer.settings.root": "dist"
 }
